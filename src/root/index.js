@@ -1,9 +1,9 @@
 const Koa = require('koa');
 const app = new Koa();
+const path = require('path');
 const router = require('./server/router');
 
 // x-response-time
-
 app.use(async (ctx, next) => {
   const start = new Date();
   await next();
@@ -21,18 +21,21 @@ app.use(async (ctx, next) => {
 });
 
 // response
-
 app.use(async (ctx, next) => {
   //ctx.body = 'hello world!'
   await next()
 });
 
 
-/*var staticServer = require('koa-static');
-var path = require('path');
-console.log(path.join(__dirname,'./static'))
-app.use(staticServer(path.join(__dirname,'./static')));*/
+//设置静态资源路径
+const staticServer = require('koa-static');
+app.use(staticServer(path.join(__dirname, './build/static')));
 
+//设置模板引擎
+const views = require('koa-views')
+app.use(views(path.join(__dirname, './template'), {
+  extension: 'ejs'
+}))
 
 app
   .use(router.routes())
@@ -40,20 +43,12 @@ app
 
 
 
+require('./mount')(app)
 
-const views = require('koa-views')
-var path = require('path');
-// 加载模板引擎
-app.use(views(path.join(__dirname, './template'), {
-  extension: 'ejs'
-}))
 
-app.use( async ( ctx ) => {
-  let title = 'hello koa2'
-  await ctx.render('aaa/index', {
-    title,
-  })
-})
+
+
+
 
 
 
