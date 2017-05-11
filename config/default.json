@@ -1,8 +1,7 @@
 {
   "project": {
-    "ignore": [
-      "1",
-      "2"
+    "list": [
+      "gameMng"
     ]
   }
 }

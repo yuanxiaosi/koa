@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var shell = require('shelljs');
+var fs = require('fs');
+var path = require('path')
+var readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+
+program
+  .command('build [hanger]', '构建项目', '')
+  .action(function(hanger){
+    rl.question('请输入项目名: ', (fileName) => {
+      var source = path.join(__dirname, "../hanger/"+hanger+"/")
+      var dist = path.join(__dirname, "../src/project/"+fileName)
+      shell.cp('-R', source, dist)
+      process.exit(0);
+    });
+  })
+  .parse(process.argv)
+
+
+
+
+
+    

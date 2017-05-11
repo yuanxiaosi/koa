@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var shell = require('shelljs');
+
+shell.exec('node index')
+
+/*program
+  .command('serve', '运行项目', '')
+  .action(function(name){
+      shell.exec('node index')
+  })
+  .parse(process.argv)*/
+
+    

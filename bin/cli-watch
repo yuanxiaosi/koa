@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var shell = require('shelljs');
+var path = require('path');
+
+
+program
+  .command('watch [name]', '监测项目', '')
+  .action(function(name){
+      var url = path.join(__dirname, "../src/project/"+name+"/")
+      shell.cd(url);
+      shell.exec('gulp');
+  })
+  .parse(process.argv)
+
+    

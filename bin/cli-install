@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var shell = require('shelljs');
+var path = require('path');
+
+
+program
+  .command('install [name]', '加载安装', '')
+  .action(function(name){
+      var url = path.join(__dirname, "../src/project/"+name+"/")
+      shell.cd(url);
+      shell.exec('npm i');
+  })
+  .parse(process.argv)
+
+    
