@@ -8,6 +8,6 @@ const files = fs.readdirSync(projectUrl)
 module.exports = (app)=>{
   //项目注入
   files.forEach((file)=>{
-    app.use(mount('/act/'+file, require('../project/'+file)))
+    app.use(mount('/mz/'+file, require('../project/'+file)))
   })
 }

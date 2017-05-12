@@ -33,6 +33,8 @@ app.use(async (ctx, next) => {
 const staticServer = require('koa-static');
 app.use(staticServer(path.join(__dirname, './build/static')));
 
+//不能在父项目里设置views，会让子项目失效
+//
 //设置模板引擎
 /*const views = require('koa-views')
 app.use(views(path.join(__dirname, './template'), {

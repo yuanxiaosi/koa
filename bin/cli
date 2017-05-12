@@ -4,10 +4,8 @@ var program = require('commander');
 
 program
   .version(require('../package.json').version)
-  .command('serve [projects]', '运行项目', '')
-  .command('install [projects]', '安装指定项目的依赖包', '')
-  .command('watch [projects]', '执行指定项目的实时编译任务', '')
-  .command('build [projects]', '执行指定项目的编译任务', '')
-  .command('upload [projects]', '执行指定项目的静态文件上传任务', '')
-  .command('stop', '停止项目，用于生产环境', '')
+  .command('s [projects]', '运行项目', '')
+  .command('i [projects]', '安装指定项目的依赖包', '')
+  .command('w [projects]', '执行指定项目的实时编译任务', '')
+  .command('b [hanger]', '执行指定项目的编译任务', '')
   .parse(process.argv);
