@@ -1,7 +1,7 @@
 {
   "name": "mz",
   "version": "1.0.0",
-  "description": "koa服务端渲染",
+  "description": "koa多应用服务",
   "main": "index.js",
   "scripts": {
     "h": "node bin/cli",
